@@ -25,7 +25,7 @@ myApp.controller("chartMainController", function($scope, $http){
 	  barChartDemo1.removeData();
 	  barChartDemo1.addData([getData()], index1);
 	  index1++;
-	}, 100000);
+	}, 2000);
 
 
 	var barChartData2 = {
@@ -50,71 +50,37 @@ myApp.controller("chartMainController", function($scope, $http){
 	  barChartDemo2.removeData();
 	  barChartDemo2.addData([getData()], "day " + index2);
 	  index2++;
-	}, 1000000);
-
-
-
-	// $(window).resize(function(){
-	//     // console.log("innerWidth" + window.innerWidth);
-	//     // console.log("innerHeight" + window.innerHeight);
-
-	//     $scope.$apply(function(){
-	//        document.getElementById("div1").style.height = innerHeight*0.4 + "px";
-	//        document.getElementById("div2").style.height = innerHeight*0.4 + "px";
-	//     });
-	// });
-
+	}, 3000);
 
 
 	$scope.submit = function(){
 		if($scope.chartHeight1 > 100 || $scope.chartHeight1 < 0 ){
 			alert("error input!!");
-			return;
 		}else{
-			var chart1height = $scope.chartHeight1 / 100;
-
-			var chart2height = (100 - $scope.chartHeight1) / 100;
-			console.log(chart1height + " " + chart2height);
-
-			console.log("innerHeight " + window.innerHeight);
-			var maxHeight = window.innerHeight * 0.7;
-			console.log("maxHeight: " + maxHeight);
-
-			// document.getElementById("div1").style.Height = (maxHeight * chart1height).toString() + "px";
-			// document.getElementById("div2").style.Height = (maxHeight * chart2height).toString() + "px";
-
-			// document.getElementById("chart1").Height = (maxHeight * chart1height);
-			// document.getElementById("chart2").Height = (maxHeight * chart2height);
-
-			// $scope.height_chart1 = (maxHeight * chart1height);
-			// $scope.height_chart2 = (maxHeight * chart2height);
-
-			// document.getElementById("chart1").style.Height = (maxHeight * chart1height).toString() + "px";
-			// document.getElementById("chart2").style.Height = (maxHeight * chart2height).toString() + "px";
+			
 		}
-
 	}
 
 
 
 	function chartStepOne(){
-        var currentWindowHeight = $(window).height()
-        var canvas = document.getElementById("chart1")
-        var chartHeight = currentWindowHeight - 40 * 0.9
-        var lineChartParent = document.getElementById('div1')
+        var currentWindowHeight = $(window).height();
+        var canvas = document.getElementById("chart1");
+        var chartHeight = currentWindowHeight - 10;
+        var lineChartParent = document.getElementById('div1');
         canvas.width = lineChartParent.clientWidth;
         canvas.height = chartHeight;
-        generateLineChart()
+        generateLineChart();
 	}
 
 
 	function chartStepOne(){
-        var currentWindowHeight = $(window).height()
-        var canvas = document.getElementById("chart2")
-        var chartHeight = currentWindowHeight - 200
-        var lineChartParent = document.getElementById('div2')
+        var currentWindowHeight = $(window).height();
+        var canvas = document.getElementById("chart2");
+        var chartHeight = currentWindowHeight - 2;
+        var lineChartParent = document.getElementById('div2');
         canvas.width = lineChartParent.clientWidth;
         canvas.height = chartHeight;
-        generateLineChart()
+        generateLineChart();
 	}
 });
