@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chart Demo</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body ng-app="myApp" ng-controller="chartMainController" ng-init=>
+
+<div>
+	<header>
+		<ul>
+		  <li><a class="active" href="#home">Home</a></li>
+		  <li><a href="#contact">Contact</a></li>
+		  <li><a href="#about">About</a></li>
+		</ul>
+	</header>
+	
+	<section id="main">
+		<div id="inputSizeForm" class="container" >
+	    	<form ng-init="chartHeight1 = null">
+	    		<span class="inputSize">
+	    			<label>Chart 1:</label>
+	    			<input type="number" name="chart1Hight1" ng-model="chartHeight1" placeholder="0 ~ 100" min="0" max="100">%
+	    			<span style="padding-left: 70px; padding-right: 70px">chart 2: {{100-chartHeight1}}%</span>
+	    			<button ng-click = "submit()">Submit</button><br>
+	    			<span>
+	    				<p ng-if="!(0 <= chartHeight1) && !(chartHeight1 >=100)" style="color: red">invalid input value, Please input value between 0 to 100</p>
+	    			</span>
+	    			<!-- <span>{{chartWidth}} + {{chartHeightone}} + {{chartHeighttwo}}</span> -->
+	    		</span>
+	    	</form>
+	    </div>
+
+		<div >
+			
+
+
+			<!-- <div id="div1" class="container" style="height: 150px; width: 90%;"> -->
+			<div id="div1" class="container"  style="max-height: 200px; max-width: 500px;">
+			    <!-- <canvas 
+			    	id="chart1" 
+			    	style="background-color: lightyellow;"
+			    	height="{{height_chart1}}"
+		    	></canvas> -->
+		    	<canvas 
+		    	id="chart1"
+                height=100
+                width="100"
+                class="chart chart-bar" 
+                chart-data="dataChart"
+                chart-labels="labels"
+                chart-click="onClick()"
+                chart-options="options">
+        		</canvas>
+			</div>
+			
+			
+			<div id="div2" class="container"  style="max-height: 200px;  max-width: 500px;">
+				<!-- <canvas 
+					id="chart2" 
+					class="chart chart-horizontal-bar"
+					style="background-color: lightgreen;"
+					height="{{height_chart2}}"
+				></canvas> -->
+				<canvas 
+				id="chart2"
+                height=100
+                width="100"
+                class="chart chart-bar" 
+                chart-data="dataChart"
+                chart-labels="labels"
+                chart-click="onClick()"
+                chart-options="options">
+        		</canvas>
+			</div>
+
+		</div>
+	</section>
+
+</div>
+
+	<footer><strong>Footer</strong></footer> 
+
+	<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+	<script type="text/javascript" src="lib/jquery/jquery-3.2.0.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+
+	
+	<script type="text/javascript" src="script/app.js"></script>
+</body>
+</html>
