@@ -48,7 +48,7 @@ section{
 
 #div2{
   height: 100%;
-  width: 90%;
+  width: 100%;
 }
 
 
@@ -58,6 +58,7 @@ section{
   bottom: 30px;
   left: 0;
   height: 100%;
+  width: 100%;
 }
 
 
