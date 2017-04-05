@@ -1,22 +1,14 @@
 var myApp = angular.module("myApp", []);
 
 myApp.controller("chartMainController", function($scope, $http){
-
-
 	var getData = function() {
 	  return Math.round(Math.random() * 90) + 10
 	};
 
-
-	
-
-
-
-
 	var barChartData1 = {
 	  labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
 	  datasets: [{
-	    fillColor: "rgba(0,60,100,1)",
+	    fillColor: "rgba(0,60,100,0.7)",
 	    strokeColor: "black",
 	    data: [getData(), getData(), getData(), getData(), getData(), getData(), getData(), getData(), getData(), getData()]
 	  }]
@@ -24,9 +16,6 @@ myApp.controller("chartMainController", function($scope, $http){
 
 	var index1 = 11;
 	var ctx1 = document.getElementById("chart1").getContext("2d");
-	// ctx1.canvas.height = (window.innerWidth*39.941176470588235294117647058824)/100;
-	// ctx1.canvas.height=window.innerHeight/6
-	// ctx1.canvas.height=100
 	var barChartDemo1 = new Chart(ctx1).Bar(barChartData1, {
 	  responsive: true,
 	  maintainAspectRatio: false,
@@ -34,16 +23,15 @@ myApp.controller("chartMainController", function($scope, $http){
 	});
 	setInterval(function() {
 	  barChartDemo1.removeData();
-	  barChartDemo1.addData([getData()], "dD " + index1);
+	  barChartDemo1.addData([getData()], index1);
 	  index1++;
-	}, 1000);
-
+	}, 100000);
 
 
 	var barChartData2 = {
 	  labels: ["Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6", "Day 7"],
 	  datasets: [{
-	    fillColor: "rgba(0,60,100,1)",
+	    fillColor: "rgba(0,60,100,0.4)",
 	    strokeColor: "black",
 	    data: [getData(), getData(), getData(), getData(), getData(), getData(), getData()]
 	  }]
@@ -62,53 +50,19 @@ myApp.controller("chartMainController", function($scope, $http){
 	  barChartDemo2.removeData();
 	  barChartDemo2.addData([getData()], "day " + index2);
 	  index2++;
-	}, 2000);
+	}, 1000000);
 
 
 
+	// $(window).resize(function(){
+	//     // console.log("innerWidth" + window.innerWidth);
+	//     // console.log("innerHeight" + window.innerHeight);
 
-	// console.log("session")
-	var sessionHeight = document.getElementById('main').clientHeight;
-	// console.log(sessionHeight);
-	var sessionWidth = document.getElementById('main').offsetWidth;
-	// console.log(sessionWidth);
-
-	// console.log("chart1")
-	var chart1Height = document.getElementById('chart1').clientHeight;
-	// console.log(chart1Height);
-	var chart1Width = document.getElementById('chart1').offsetWidth;
-	// console.log(chart1Width);
-
-	// console.log("chart2")
-	var chart2Height = document.getElementById('chart2').clientHeight;
-	// console.log(chart2Height);
-	var chart2Width = document.getElementById('chart2').offsetWidth;
-	// console.log(chart2Width);
-
-	
-	
-	// $scope.chartWidth = 0.8*sessionWidth;
-	$scope.chartWidth = 20;
-	$scope.chartHeightone = 0.4*sessionHeight;
-	$scope.chartHeighttwo = 0.4*sessionHeight;
-
-	
-
-
-
-
-	$(window).resize(function(){
-	    // console.log("innerWidth" + window.innerWidth);
-	    // console.log("innerHeight" + window.innerHeight);
-
-	    $scope.$apply(function(){
-	       document.getElementById("div1").style.height = innerHeight*0.4 + "px";
-	       document.getElementById("div2").style.height = innerHeight*0.4 + "px";
-	    });
-	});
-
-
-
+	//     $scope.$apply(function(){
+	//        document.getElementById("div1").style.height = innerHeight*0.4 + "px";
+	//        document.getElementById("div2").style.height = innerHeight*0.4 + "px";
+	//     });
+	// });
 
 
 
@@ -126,8 +80,8 @@ myApp.controller("chartMainController", function($scope, $http){
 			var maxHeight = window.innerHeight * 0.7;
 			console.log("maxHeight: " + maxHeight);
 
-			document.getElementById("div1").style.Height = (maxHeight * chart1height).toString() + "px";
-			document.getElementById("div2").style.Height = (maxHeight * chart2height).toString() + "px";
+			// document.getElementById("div1").style.Height = (maxHeight * chart1height).toString() + "px";
+			// document.getElementById("div2").style.Height = (maxHeight * chart2height).toString() + "px";
 
 			// document.getElementById("chart1").Height = (maxHeight * chart1height);
 			// document.getElementById("chart2").Height = (maxHeight * chart2height);
@@ -146,7 +100,7 @@ myApp.controller("chartMainController", function($scope, $http){
 	function chartStepOne(){
         var currentWindowHeight = $(window).height()
         var canvas = document.getElementById("chart1")
-        var chartHeight = currentWindowHeight - 40
+        var chartHeight = currentWindowHeight - 40 * 0.9
         var lineChartParent = document.getElementById('div1')
         canvas.width = lineChartParent.clientWidth;
         canvas.height = chartHeight;
@@ -163,42 +117,4 @@ myApp.controller("chartMainController", function($scope, $http){
         canvas.height = chartHeight;
         generateLineChart()
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-	// $scope.headerHeight = $("#navBar").height() / $("#navBar").parent().height() ;
-	// $scope.inputHeight = $("#inputSizeForm").height() / $("#inputSizeForm").parent().height() ;
-	// $scope.footerHeight =$("footer").height() / $("footer").parent().height() ;
-
-	
-	// console.log($scope.headerHeight);
-	// console.log($scope.inputHeight);
-	// console.log($scope.footerHeight);
-
-
 });
-
