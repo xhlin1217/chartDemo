@@ -143,7 +143,26 @@ myApp.controller("chartMainController", function($scope, $http){
 
 
 
+	function chartStepOne(){
+        var currentWindowHeight = $(window).height()
+        var canvas = document.getElementById("chart1")
+        var chartHeight = currentWindowHeight - 40
+        var lineChartParent = document.getElementById('div1')
+        canvas.width = lineChartParent.clientWidth;
+        canvas.height = chartHeight;
+        generateLineChart()
+	}
 
+
+	function chartStepOne(){
+        var currentWindowHeight = $(window).height()
+        var canvas = document.getElementById("chart2")
+        var chartHeight = currentWindowHeight - 200
+        var lineChartParent = document.getElementById('div2')
+        canvas.width = lineChartParent.clientWidth;
+        canvas.height = chartHeight;
+        generateLineChart()
+	}
 
 
 
