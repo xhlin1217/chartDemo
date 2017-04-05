@@ -39,7 +39,7 @@ section{
 
 #bottom{
     position: absolute;
-    top: 150px;
+    top: 250px;
     bottom: 0;
     width: 100%;
     /*background-color:pink;*/
@@ -54,7 +54,7 @@ section{
 #div2{
   position: absolute;
   right: 0;
-  bottom: 10px;
+  bottom: 30px;
   left: 0;
   height: 100%;
 }
